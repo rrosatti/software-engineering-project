@@ -1,11 +1,18 @@
 package com.example.rodri.tempnow.ui.activity;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,10 +22,12 @@ import com.example.rodri.tempnow.temperature.Temperature;
 import com.example.rodri.tempnow.ui.adapter.SpinnerAdapter;
 import com.example.rodri.tempnow.util.Util;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private SpinnerAdapter adapter;
     private EditText etTemperature;
@@ -29,14 +38,13 @@ public class MainActivity extends Activity {
     private List<String> scalesArray;
     private int selectedScale = 0;
     private Temperature temperature;
-    private double temp1;
-    private double temp2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Util.setFullScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setCustomToolBar();
         initialize();
 
         scalesArray = Arrays.asList("", "Celsius", "Fahrenheit", "Kelvin");
@@ -72,35 +80,32 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 if (scalesArray.get(selectedScale).isEmpty()) {
                     Toast.makeText(MainActivity.this, R.string.no_scale_selected, Toast.LENGTH_LONG).show();
-                } else if (etTemperature.getText().toString().equals("")){
+                } else if (etTemperature.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, R.string.no_temperature_value, Toast.LENGTH_LONG).show();
                 } else {
-                    //Toast.makeText(MainActivity.this, scalesArray.get(selectedScale) + " was selected!", Toast.LENGTH_LONG).show();
-                    temperature.setTemperature(Long.parseLong(etTemperature.getText().toString()));
+                    NumberFormat formatter = new DecimalFormat("#0.00");
+                    double temp = Double.parseDouble(etTemperature.getText().toString());
+                    temperature.setTemperature(temp);
                     switch (temperature.getScale()) {
                         case 'C':
-                            temp1 = temperature.celsiusToFahrenheit();
-                            txtTemp1.setText(temperature.celsiusToFahrenheit() + " ºF");
-                            temp2 = temperature.celsiusToKelvin();
-                            txtTemp2.setText(temperature.celsiusToKelvin() + " K");
+                            txtTemp1.setText(formatter.format(temperature.celsiusToFahrenheit()) + " ºF");
+                            txtTemp2.setText(formatter.format(temperature.celsiusToKelvin()) + " K");
                             break;
                         case 'F':
-                            temp1 = temperature.fahrenheitToCelsius();
-                            txtTemp1.setText(temperature.fahrenheitToCelsius() + " ºC");
-                            temp2 = temperature.fahrenheitToKelvin();
-                            txtTemp2.setText(temperature.fahrenheitToKelvin() + " K");
+                            txtTemp1.setText(formatter.format(temperature.fahrenheitToCelsius()) + " ºC");
+                            txtTemp2.setText(formatter.format(temperature.fahrenheitToKelvin()) + " K");
                             break;
                         case 'K':
-                            temp1 = temperature.kelvinToCelsius();
-                            txtTemp1.setText(temperature.kelvinToCelsius() + " ºC");
-                            temp2 = temperature.kelvinToFahrenheit();
-                            txtTemp2.setText(temperature.kelvinToFahrenheit() + " ºF");
+                            txtTemp1.setText(formatter.format(temperature.kelvinToCelsius()) + " ºC");
+                            txtTemp2.setText(formatter.format(temperature.kelvinToFahrenheit()) + " ºF");
                             break;
                     }
                 }
 
             }
         });
+
+
     }
 
     public void initialize() {
@@ -110,5 +115,12 @@ public class MainActivity extends Activity {
         txtTemp2 = (TextView) findViewById(R.id.txtTemp2);
         btConvert = (Button) findViewById(R.id.btConvert);
         temperature = new Temperature();
+    }
+
+    public void setCustomToolBar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.customToolBar);
+        setSupportActionBar(toolbar);
+        TextView title = (TextView) toolbar.findViewById(R.id.txtToolBarTitle);
+        title.setText(R.string.app_name);
     }
 }

@@ -2,21 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
     android:background="#F9EDCC">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customToolBar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#61210F">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#F9EDCC"
+                android:textSize="13pt"
+                android:id="@+id/txtToolBarTitle" />
+
+    </android.support.v7.widget.Toolbar>
 
     <EditText
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         android:ems="10"
         android:id="@+id/etTemperature"
         android:textStyle="italic"
         android:textSize="12pt"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginRight="10dp"/>
 
     <Spinner
@@ -26,6 +43,7 @@
         android:layout_alignTop="@+id/etTemperature"
         android:layout_toEndOf="@+id/etTemperature"
         android:background="@android:color/transparent"
+        android:layout_marginRight="12dp"
         />
 
     <TextView
@@ -33,7 +51,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtTemp1"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#61210F"
+        android:textSize="15pt"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +61,9 @@
         android:id="@+id/txtTemp2"
         android:layout_below="@+id/txtTemp1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
+        android:layout_marginTop="57dp"
+        android:textColor="#61210F"
+        android:textSize="15pt"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -50,5 +72,6 @@
         android:id="@+id/btConvert"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp" />
+        android:layout_marginBottom="43dp"
+        />
 </RelativeLayout>
