@@ -53,7 +53,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textColor="#61210F"
-        android:textSize="15pt"/>
+        android:textSize="17pt"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
         android:textColor="#61210F"
-        android:textSize="15pt"/>
+        android:textSize="17pt"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -73,5 +73,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="43dp"
-        />
+        android:textSize="10pt"/>
 </RelativeLayout>

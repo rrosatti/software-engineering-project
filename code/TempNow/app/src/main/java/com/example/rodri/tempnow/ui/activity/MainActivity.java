@@ -2,6 +2,7 @@ package com.example.rodri.tempnow.ui.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> scalesArray;
     private int selectedScale = 0;
     private Temperature temperature;
+    Typeface custom_font;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,12 +117,20 @@ public class MainActivity extends AppCompatActivity {
         txtTemp2 = (TextView) findViewById(R.id.txtTemp2);
         btConvert = (Button) findViewById(R.id.btConvert);
         temperature = new Temperature();
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/UbuntuTitling-Bold.ttf");
+        txtTemp1.setTypeface(custom_font);
+        txtTemp2.setTypeface(custom_font);
+        btConvert.setTypeface(custom_font);
+        etTemperature.setTypeface(custom_font);
+
     }
 
     public void setCustomToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.customToolBar);
         setSupportActionBar(toolbar);
         TextView title = (TextView) toolbar.findViewById(R.id.txtToolBarTitle);
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/UbuntuTitling-Bold.ttf");
+        title.setTypeface(custom_font);
         title.setText(R.string.app_name);
     }
 }

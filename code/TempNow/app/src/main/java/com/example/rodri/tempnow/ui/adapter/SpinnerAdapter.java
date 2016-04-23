@@ -2,6 +2,7 @@ package com.example.rodri.tempnow.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,12 +23,15 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
     private Activity activity;
     private LayoutInflater inflater = null;
     List<String> scales;
+    private Typeface custom_font;
 
     public SpinnerAdapter(Activity activity, int textViewResourceId, List<String> scales) {
         super(activity, textViewResourceId, scales);
         try {
             this.activity = activity;
             this.scales = scales;
+
+            custom_font = Typeface.createFromAsset(activity.getAssets(), "fonts/UbuntuTitling-Bold.ttf");
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         } catch (Exception e) {
@@ -63,6 +67,8 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
 
             holder.displayScale = (TextView) v.findViewById(R.id.txtScaleName);
             holder.displaySpinnerArrow = (ImageView) v.findViewById(R.id.imgSpinnerArrow);
+
+            holder.displayScale.setTypeface(custom_font);
 
             v.setTag(holder);
         } else {

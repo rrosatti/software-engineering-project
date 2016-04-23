@@ -39,8 +39,8 @@ public class SplashScreenActivity extends Activity {
         int height = size.y;
 
         tempNowImage.setImageResource(R.drawable.tempnow_thermometer);
-        tempNowImage.getLayoutParams().width = (int) (0.80 * width);
-        tempNowImage.getLayoutParams().height = (int) (0.80 * height);
+        tempNowImage.getLayoutParams().width = (int) (0.70 * width);
+        tempNowImage.getLayoutParams().height = (int) (0.45 * height);
         tempNowImage.requestLayout();
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/FingerPaint-Regular.ttf");
