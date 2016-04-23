@@ -12,4 +12,8 @@
     <!--  Spinner Title  -->
     <string name="spinner_title">Choose scale</string>
 
+    <!--  Toast Messages  -->
+    <string name="no_scale_selected">Select a scale</string>
+    <string name="no_temperature_value">Temperature value is required</string>
+
 </resources>
