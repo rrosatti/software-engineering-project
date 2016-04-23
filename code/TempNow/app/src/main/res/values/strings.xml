@@ -1,3 +1,15 @@
 <resources>
+
+    <!--  Text View  -->
     <string name="app_name">TempNow</string>
+
+    <!--  Hint  -->
+    <string name="temperature">temperature</string>
+
+    <!--  Button  -->
+    <string name="convert">Convert</string>
+
+    <!--  Spinner Title  -->
+    <string name="spinner_title">Choose scale</string>
+
 </resources>
