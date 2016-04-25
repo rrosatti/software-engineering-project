@@ -21,6 +21,7 @@ public class SplashScreenActivity extends Activity {
     final long _splashTime = 3500;
     private ImageView tempNowImage;
     private TextView txtTempNow;
+    private Typeface custom_font;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +43,6 @@ public class SplashScreenActivity extends Activity {
         tempNowImage.getLayoutParams().width = (int) (0.70 * width);
         tempNowImage.getLayoutParams().height = (int) (0.45 * height);
         tempNowImage.requestLayout();
-
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/FingerPaint-Regular.ttf");
-        txtTempNow.setTypeface(custom_font);
 
         final Thread splashThread = new Thread() {
 
@@ -73,5 +71,13 @@ public class SplashScreenActivity extends Activity {
     public void initialize() {
         tempNowImage = (ImageView) findViewById(R.id.tempNowImageView);
         txtTempNow = (TextView) findViewById(R.id.txtTempNow);
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/FingerPaint-Regular.ttf");
+
+        txtTempNow.setTypeface(custom_font);
+    }
+
+    @Override
+    public void onBackPressed() {
+       //do nothing :)
     }
 }

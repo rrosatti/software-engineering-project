@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> scalesArray;
     private int selectedScale = 0;
     private Temperature temperature;
-    Typeface custom_font;
+    private Typeface custom_font;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         btConvert = (Button) findViewById(R.id.btConvert);
         temperature = new Temperature();
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/UbuntuTitling-Bold.ttf");
+
         txtTemp1.setTypeface(custom_font);
         txtTemp2.setTypeface(custom_font);
         btConvert.setTypeface(custom_font);

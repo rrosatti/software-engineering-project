@@ -50,10 +50,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtTemp1"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:textColor="#61210F"
-        android:textSize="17pt"/>
+        android:textSize="17pt"
+        android:layout_below="@+id/etTemperature"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,10 +69,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/convert"
         android:id="@+id/btConvert"
+        android:background="@drawable/rounded_button"
+        android:text="@string/convert"
+        android:textSize="10pt"
+        android:textColor="#F9EDCC"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp"
-        android:textSize="10pt"/>
+        android:layout_marginBottom="90dp"/>
 </RelativeLayout>
