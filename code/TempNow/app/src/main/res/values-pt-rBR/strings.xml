@@ -1,0 +1,19 @@
+<resources>
+
+    <!--  Text View  -->
+    <string name="app_name">TempNow</string>
+
+    <!--  Hint  -->
+    <string name="temperature">temperatura</string>
+
+    <!--  Button  -->
+    <string name="convert">Converter</string>
+
+    <!--  Spinner Title  -->
+    <string name="spinner_title">Selecionar escala</string>
+
+    <!--  Toast Messages  -->
+    <string name="no_scale_selected">Selecione uma escala</string>
+    <string name="no_temperature_value">Digite um valor para temperatura</string>
+
+</resources>
