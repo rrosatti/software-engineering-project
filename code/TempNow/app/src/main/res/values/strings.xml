@@ -5,6 +5,7 @@
 
     <!--  Hint  -->
     <string name="temperature">temperature</string>
+    <string name="temp">ex: 0</string>
 
     <!--  Button  -->
     <string name="convert">Convert</string>
