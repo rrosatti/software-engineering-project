@@ -54,17 +54,17 @@
         android:id="@+id/txtTemp1"
         android:textColor="#61210F"
         android:textSize="17pt"
-        android:layout_below="@+id/etTemperature"
+        android:layout_above="@+id/txtTemp2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"/>
+        android:layout_marginBottom="45dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtTemp2"
-        android:layout_below="@+id/txtTemp1"
+        android:layout_above="@+id/btConvert"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp"
+        android:layout_marginBottom="65dp"
         android:textColor="#61210F"
         android:textSize="17pt"/>
 
@@ -78,5 +78,5 @@
         android:textColor="#F9EDCC"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp"/>
+        android:layout_marginBottom="60dp"/>
 </RelativeLayout>

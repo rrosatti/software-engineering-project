@@ -80,13 +80,25 @@ public class MainActivity extends AppCompatActivity {
         btConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String tempString = etTemperature.getText().toString();
                 if (scalesArray.get(selectedScale).isEmpty()) {
                     Toast.makeText(MainActivity.this, R.string.no_scale_selected, Toast.LENGTH_LONG).show();
-                } else if (etTemperature.getText().toString().equals("")) {
+                } else if (tempString.equals("")) {
                     Toast.makeText(MainActivity.this, R.string.no_temperature_value, Toast.LENGTH_LONG).show();
                 } else {
+
+                    double temp = 0.00;
+
+                    try {
+                        temp = Double.parseDouble(tempString);
+                    } catch (Exception e) {
+                        Toast.makeText(MainActivity.this, "Invalid value!", Toast.LENGTH_SHORT).show();
+                        temp = 0.00;
+                        etTemperature.setText("0.00");
+                        e.printStackTrace();
+                    }
+
                     NumberFormat formatter = new DecimalFormat("#0.00");
-                    double temp = Double.parseDouble(etTemperature.getText().toString());
                     temperature.setTemperature(temp);
                     switch (temperature.getScale()) {
                         case 'C':
